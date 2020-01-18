@@ -21,11 +21,11 @@ sudo dnf install ansible # RedHat-based
 sudo apt install ansible # Debian-based
 ```
 
-- Criar um diretório Projects na home do usuário
+- Criar um diretório Projects na home do usuário e entrar na pasta
 ```shell
-mkdir ~/Projects
+mkdir ~/Projects && cd Projects
 ```
-- Clonar o repositório nesta pasta
+- Clonar o repositório
 ```shell
 git clone https://github.com/maureliofs/ansible-wordpress.git
 ```
