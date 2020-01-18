@@ -34,7 +34,7 @@ git clone https://github.com/maureliofs/ansible-wordpress.git
 ```shell
 vagrant up
 ```
-Para testar se as máquinas foram iniciadas, basta digitar:
+- Para testar se as máquinas foram iniciadas, basta digitar:
 ```shell
 vagrant status
 ```
@@ -45,7 +45,7 @@ vagrant status
 ansible-playbook provisioning.yml -i hosts
 ```
 
-Basta acessar o browser pelo ip da máquina wordpress
+- Basta acessar o browser pelo ip da máquina wordpress
 
 ```shell
 172.17.177.43
