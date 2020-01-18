@@ -21,6 +21,15 @@ sudo dnf install ansible # RedHat-based
 sudo apt install ansible # Debian-based
 ```
 
+- Criar um diretório Projects na home do usuário
+```shell
+mkdir ~/Projects
+```
+- Clonar o repositório nesta pasta
+```shell
+git clone https://github.com/maureliofs/ansible-wordpress.git
+```
+
 - Abrir o diretório raiz do projeto onde está o arquivo `Vagrantfile` e rodar o seguinte comando no terminal: 
 ```shell
 vagrant up
@@ -39,5 +48,5 @@ ansible-playbook provisioning.yml -i hosts
 Basta acessar o browser pelo ip da máquina wordpress
 
 ```shell
-172.17.177.41
+172.17.177.43
 ```
