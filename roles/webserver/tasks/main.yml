@@ -1,0 +1,7 @@
+---
+- name: Atualiza os repositorios e instala pacotes de dependencia do SO                                                           # nome da task
+  apt:                                                                                                                            # modulo apt
+    name: ['php', 'apache2', 'libapache2-mod-php', 'php-gd', 'php-ssh2', 'mcrypt', 'php-mysql']                                   # nome dos pacotes a serem instaladores
+    state: latest                                                                                                                 # ultima versão dos pacotes
+    update_cache: yes                                                                                                             # apt update
+  become: yes

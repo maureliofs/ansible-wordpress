@@ -1,0 +1,34 @@
+---
+- name: atualiza os repositorios e instala pacotes de dependencia do SO
+  apt:
+    name: ['mysql-server', 'python-mysqldb']
+    state: latest
+    update_cache: yes
+  become: yes 
+
+- name: Cria o banco de MySQL
+  mysql_db:
+    name: "{{ wp_db_name }}"
+    login_user: root                                                                                                              # login_password: {{ wp_db_password }}6 
+    state: present                                                                                                                # present = cria o banco; absent=deleta o banco
+  become: yes
+
+- name : Cria o usuario do MySQL com todas as permissoes de alteracao
+  mysql_user:
+    login_user: root
+    name: "{{ wp_username }}"	
+    password: "{{ wp_db_password }}"
+    priv: "{{ wp_db_name }}.*:ALL"
+    state: present
+    host: "{{ item }}"
+  become: yes
+  with_items:
+  - "{{ wp_host_ip }}"
+
+- name: Configura o MySQL para aceitar conexões remotas
+  copy:
+    src: 'files/mysqld.cnf'
+    dest: '/etc/mysql/mysql.conf.d/mysqld.cnf'
+  become: yes
+  notify:
+  - restart mysql
